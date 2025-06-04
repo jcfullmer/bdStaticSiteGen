@@ -5,9 +5,11 @@ from htmlnode import *
 
 class TestHTMLNode(unittest.TestCase):
     def test_eq(self):
-        node = HTMLNode("This is a text node", TextType.BOLD)
-        node2 = HTMLNode("This is a text node", TextType.BOLD)
-        self.assertEqual(node, node2)
+        node = HTMLNode(props={"href": "https://google.com", "target": "_blank"})
+
+        result = node.props_to_html()
+        print(result)
+        assert result == ' href="https://google.com" target="_blank"'
 
 
 if __name__ == "__main__":
