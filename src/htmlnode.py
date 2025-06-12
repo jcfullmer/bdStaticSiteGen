@@ -56,5 +56,7 @@ class ParentNode(HTMLNode):
             raise ValueError("Children list is empty")
         return f"<{self.tag}{self.props_to_html()}>{"".join([child.to_html() for child in self.children])}</{self.tag}>"
 
+        def __repr__(self):
+            return f"ParentNode({self.tag}, children: {self.children}, {self.props})"
 
         
